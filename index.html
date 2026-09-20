@@ -1,13 +1,2626 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./src/pages/demo/show.js"></script>
-  </body>
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Diệu Thảo 💗</title>
+
+<style>
+/* =========================================================
+   RESET
+========================================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+    background:#05020a;
+    color:white;
+    cursor:default;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+#app{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,50,120,.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050107,
+            #160611,
+            #030105
+        );
+}
+
+/* =========================================================
+   CINEMATIC VIGNETTE
+========================================================= */
+#app::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:50;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0,0,0,.75) 100%
+        );
+}
+
+/* =========================================================
+   FILM GRAIN
+========================================================= */
+#app::after{
+    content:"";
+    position:absolute;
+    inset:-50%;
+
+    z-index:51;
+    pointer-events:none;
+
+    opacity:.045;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+    animation:grain .18s steps(2) infinite;
+}
+
+@keyframes grain{
+    0%{transform:translate(0,0)}
+    25%{transform:translate(3%,-2%)}
+    50%{transform:translate(-2%,3%)}
+    75%{transform:translate(2%,2%)}
+    100%{transform:translate(-3%,-3%)}
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+#loading{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle,
+            #351022,
+            #0a0208 65%,
+            #020103
+        );
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+#loading.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loading-content{
+    text-align:center;
+}
+
+.loading-heart{
+    position:relative;
+
+    width:65px;
+    height:65px;
+
+    margin:auto;
+
+    transform:rotate(-45deg);
+
+    background:#ff3f79;
+
+    box-shadow:
+        0 0 20px #ff3f79,
+        0 0 60px rgba(255,63,121,.7);
+
+    animation:
+        loadHeart 1s ease-in-out infinite;
+}
+
+.loading-heart::before,
+.loading-heart::after{
+    content:"";
+    position:absolute;
+
+    width:65px;
+    height:65px;
+
+    background:#ff3f79;
+    border-radius:50%;
+}
+
+.loading-heart::before{
+    top:-32px;
+    left:0;
+}
+
+.loading-heart::after{
+    left:32px;
+    top:0;
+}
+
+@keyframes loadHeart{
+    0%,100%{
+        transform:rotate(-45deg) scale(.8);
+    }
+
+    50%{
+        transform:rotate(-45deg) scale(1);
+    }
+}
+
+.loading-text{
+    margin-top:40px;
+
+    color:rgba(255,255,255,.55);
+
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   BACKGROUND AURORA
+========================================================= */
+.aurora{
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    opacity:.17;
+
+    pointer-events:none;
+}
+
+.aurora.a{
+    background:#ff1f68;
+    left:-300px;
+    top:-300px;
+
+    animation:
+        auroraA 14s ease-in-out infinite alternate;
+}
+
+.aurora.b{
+    background:#7628ff;
+    right:-300px;
+    bottom:-300px;
+
+    animation:
+        auroraB 18s ease-in-out infinite alternate;
+}
+
+.aurora.c{
+    background:#ff83b3;
+
+    left:35%;
+    top:35%;
+
+    opacity:.08;
+
+    animation:
+        auroraC 20s ease-in-out infinite alternate;
+}
+
+@keyframes auroraA{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(180px,120px) scale(1.25);
+    }
+}
+
+@keyframes auroraB{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(-180px,-130px) scale(1.3);
+    }
+}
+
+@keyframes auroraC{
+    from{
+        transform:translate(-100px,-50px);
+    }
+
+    to{
+        transform:translate(120px,100px);
+    }
+}
+
+/* =========================================================
+   STARS
+========================================================= */
+#stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 8px white;
+
+    animation:
+        twinkle var(--duration) ease-in-out infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+}
+
+/* =========================================================
+   FLOATING PARTICLES
+========================================================= */
+#particles{
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+
+    bottom:-30px;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#ff82a9;
+
+    box-shadow:
+        0 0 12px #ff477d;
+
+    animation:
+        floatParticle var(--duration) linear infinite;
+
+    animation-delay:var(--delay);
+}
+
+@keyframes floatParticle{
+    0%{
+        opacity:0;
+        transform:
+            translate3d(0,0,0)
+            scale(.2);
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    50%{
+        transform:
+            translate3d(
+                var(--x),
+                -55vh,
+                0
+            )
+            scale(1);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate3d(
+                var(--x2),
+                -115vh,
+                0
+            )
+            scale(.1);
+    }
+}
+
+/* =========================================================
+   MOUSE LIGHT
+========================================================= */
+#mouseLight{
+    position:fixed;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:10;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,72,132,.12),
+            transparent 68%
+        );
+}
+
+/* =========================================================
+   CINEMATIC BARS
+========================================================= */
+.cinema-bar{
+    position:fixed;
+    left:0;
+    width:100%;
+    height:7vh;
+
+    background:#000;
+
+    z-index:500;
+
+    pointer-events:none;
+}
+
+.cinema-bar.top{
+    top:0;
+}
+
+.cinema-bar.bottom{
+    bottom:0;
+}
+
+/* =========================================================
+   SCENES
+========================================================= */
+.scene{
+    position:absolute;
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        scale(1.08)
+        translateY(20px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.4s cubic-bezier(.22,1,.36,1),
+        visibility 1.2s;
+}
+
+.scene.active{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+.intro{
+    text-align:center;
+
+    width:min(900px,100%);
+
+    transform:
+        translateY(var(--introY,0px));
+}
+
+.eyebrow{
+    font-size:11px;
+
+    letter-spacing:7px;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.45);
+
+    margin-bottom:30px;
+}
+
+.intro h1{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(55px,12vw,145px);
+
+    font-weight:400;
+
+    line-height:.9;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #ffb4cb,
+            #fff,
+            #ff6f9c
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        shimmer 7s linear infinite;
+}
+
+@keyframes shimmer{
+    to{
+        background-position:300%;
+    }
+}
+
+.intro-sub{
+    margin-top:35px;
+
+    font-size:
+        clamp(15px,2vw,20px);
+
+    color:rgba(255,255,255,.6);
+
+    letter-spacing:2px;
+}
+
+.scroll{
+    margin-top:65px;
+
+    color:rgba(255,255,255,.35);
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    animation:
+        scrollFloat 2s ease-in-out infinite;
+}
+
+@keyframes scrollFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+/* =========================================================
+   APOLOGY CARD
+========================================================= */
+.apology{
+    width:min(850px,100%);
+
+    text-align:center;
+}
+
+.glass{
+    position:relative;
+
+    padding:
+        clamp(35px,6vw,70px);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.08);
+
+    overflow:hidden;
+}
+
+.glass::before{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:#ff3975;
+
+    filter:blur(100px);
+
+    opacity:.12;
+
+    top:-150px;
+    left:-100px;
+}
+
+.glass::after{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:#8e3cff;
+
+    filter:blur(100px);
+
+    opacity:.10;
+
+    bottom:-150px;
+    right:-100px;
+}
+
+.glass h2{
+    position:relative;
+    z-index:2;
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(34px,6vw,65px);
+
+    font-weight:400;
+
+    margin-bottom:35px;
+}
+
+.glass p{
+    position:relative;
+    z-index:2;
+
+    max-width:650px;
+
+    margin:auto;
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(15px,2vw,19px);
+
+    line-height:2;
+
+    color:rgba(255,255,255,.68);
+}
+
+.highlight{
+    color:#ff91b2;
+
+    text-shadow:
+        0 0 20px rgba(255,100,150,.4);
+}
+
+/* =========================================================
+   HEART
+========================================================= */
+.heart-wrap{
+    margin:0 auto 55px;
+
+    width:100px;
+    height:100px;
+
+    position:relative;
+
+    transform:rotate(-45deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff286b,
+            #ff9db8
+        );
+
+    box-shadow:
+        0 0 30px #ff3975,
+        0 0 80px rgba(255,55,110,.55);
+
+    animation:
+        heartbeat 1.4s ease-in-out infinite;
+}
+
+.heart-wrap::before,
+.heart-wrap::after{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff286b,
+            #ff9db8
+        );
+}
+
+.heart-wrap::before{
+    top:-50px;
+    left:0;
+}
+
+.heart-wrap::after{
+    top:0;
+    left:50px;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:rotate(-45deg) scale(.9);
+    }
+
+    10%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    20%{
+        transform:rotate(-45deg) scale(.92);
+    }
+
+    30%{
+        transform:rotate(-45deg) scale(1.07);
+    }
+
+    45%{
+        transform:rotate(-45deg) scale(.94);
+    }
+}
+
+.heart-title{
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(30px,5vw,55px);
+
+    font-weight:400;
+}
+
+.heart-sub{
+    margin-top:20px;
+
+    color:rgba(255,255,255,.55);
+}
+
+/* =========================================================
+   FINAL QUESTION
+========================================================= */
+.question{
+    width:min(900px,100%);
+
+    text-align:center;
+}
+
+.question-small{
+    color:rgba(255,255,255,.4);
+
+    letter-spacing:5px;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.question h2{
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:
+        clamp(38px,7vw,75px);
+
+    line-height:1.1;
+
+    text-shadow:
+        0 0 30px rgba(255,100,150,.2);
+}
+
+.question h2 span{
+    color:#ff7ea3;
+
+    text-shadow:
+        0 0 30px rgba(255,60,120,.5);
+}
+
+.buttons{
+    margin-top:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    position:relative;
+
+    min-width:145px;
+
+    padding:16px 30px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:
+        transform .35s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s,
+        background .35s;
+}
+
+.btn::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:inherit;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.2),
+            transparent
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:.7s;
+}
+
+.btn:hover::before{
+    transform:translateX(120%);
+}
+
+.yes{
+    background:
+        linear-gradient(
+            135deg,
+            #ff3975,
+            #ff78a0
+        );
+
+    box-shadow:
+        0 12px 35px rgba(255,50,110,.35);
+}
+
+.yes:hover{
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 20px 55px rgba(255,50,110,.5);
+}
+
+.no{
+    background:
+        rgba(255,255,255,.06);
+
+    backdrop-filter:blur(15px);
+}
+
+.love{
+    background:
+        linear-gradient(
+            135deg,
+            #a83dff,
+            #ff4f91
+        );
+
+    box-shadow:
+        0 12px 35px rgba(184,55,255,.3);
+}
+
+.love:hover{
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 20px 55px rgba(190,60,255,.45);
+}
+
+/* =========================================================
+   NO BUTTON ESCAPE
+========================================================= */
+.no.flying{
+    position:fixed;
+
+    z-index:9000;
+
+    transition:
+        left .45s cubic-bezier(.22,1,.36,1),
+        top .45s cubic-bezier(.22,1,.36,1),
+        transform .2s;
+}
+
+/* =========================================================
+   RESULT MESSAGE
+========================================================= */
+.result{
+    position:fixed;
+
+    inset:0;
+
+    z-index:8000;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+
+    opacity:0;
+    visibility:hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,40,100,.18),
+            rgba(0,0,0,.82)
+        );
+
+    backdrop-filter:blur(12px);
+
+    transition:
+        opacity .8s,
+        visibility .8s;
+}
+
+.result.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.result-card{
+    width:min(800px,100%);
+
+    padding:
+        clamp(35px,7vw,75px);
+
+    text-align:center;
+
+    border-radius:40px;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.1),
+            rgba(255,255,255,.035)
+        );
+
+    backdrop-filter:blur(30px);
+
+    box-shadow:
+        0 40px 150px rgba(0,0,0,.6);
+
+    transform:
+        scale(.75)
+        translateY(50px);
+
+    transition:
+        transform 1s cubic-bezier(.22,1,.36,1);
+}
+
+.result.show .result-card{
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.result-icon{
+    font-size:65px;
+
+    margin-bottom:30px;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,60,120,.7)
+        );
+
+    animation:
+        resultHeart 1.2s infinite;
+}
+
+@keyframes resultHeart{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.result h2{
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:
+        clamp(28px,5vw,55px);
+
+    line-height:1.35;
+}
+
+.result p{
+    margin-top:25px;
+
+    color:rgba(255,255,255,.65);
+
+    line-height:1.8;
+}
+
+.close-result{
+    margin-top:35px;
+
+    padding:13px 25px;
+
+    border-radius:999px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.06);
+
+    cursor:pointer;
+}
+
+/* =========================================================
+   HEART PARTICLES
+========================================================= */
+.fly-heart{
+    position:fixed;
+
+    z-index:10000;
+
+    pointer-events:none;
+
+    font-size:
+        var(--size);
+
+    color:
+        var(--color);
+
+    left:var(--left);
+    top:var(--top);
+
+    animation:
+        flyHeart var(--duration) ease-out forwards;
+}
+
+@keyframes flyHeart{
+    0%{
+        opacity:0;
+        transform:
+            translate(-50%,-50%)
+            scale(.2)
+            rotate(0);
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(1)
+            rotate(var(--rotate));
+    }
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+.confetti{
+    position:fixed;
+
+    z-index:11000;
+
+    width:7px;
+    height:7px;
+
+    pointer-events:none;
+
+    left:50%;
+    top:50%;
+
+    background:
+        var(--color);
+
+    border-radius:
+        var(--radius);
+
+    animation:
+        confetti var(--duration) ease-out forwards;
+}
+
+@keyframes confetti{
+    0%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0)
+            scale(1);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(var(--rotate))
+            scale(.3);
+    }
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+#toast{
+    position:fixed;
+
+    left:50%;
+    bottom:11vh;
+
+    z-index:12000;
+
+    transform:
+        translate(-50%,30px);
+
+    opacity:0;
+    visibility:hidden;
+
+    padding:13px 22px;
+
+    border-radius:999px;
+
+    background:
+        rgba(15,3,10,.8);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    color:rgba(255,255,255,.85);
+
+    font-size:13px;
+
+    transition:.4s;
+}
+
+#toast.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =========================================================
+   SCREEN FLASH
+========================================================= */
+#flash{
+    position:fixed;
+    inset:0;
+
+    z-index:13000;
+
+    pointer-events:none;
+
+    background:white;
+
+    opacity:0;
+}
+
+#flash.active{
+    animation:
+        flash .55s ease-out;
+}
+
+@keyframes flash{
+    0%{
+        opacity:.4;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media(max-width:600px){
+
+    .cinema-bar{
+        height:4vh;
+    }
+
+    .scene{
+        padding:20px;
+    }
+
+    .glass{
+        padding:35px 23px;
+        border-radius:25px;
+    }
+
+    .glass p{
+        line-height:1.8;
+    }
+
+    .buttons{
+        gap:12px;
+    }
+
+    .btn{
+        min-width:130px;
+        padding:14px 20px;
+    }
+
+    .heart-wrap{
+        width:75px;
+        height:75px;
+    }
+
+    .heart-wrap::before,
+    .heart-wrap::after{
+        width:75px;
+        height:75px;
+    }
+
+    .heart-wrap::before{
+        top:-37px;
+    }
+
+    .heart-wrap::after{
+        left:37px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     LOADING
+========================================================= -->
+
+<div id="loading">
+
+    <div class="loading-content">
+
+        <div class="loading-heart"></div>
+
+        <div class="loading-text">
+            Một lời xin lỗi dành cho Diệu Thảo...
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     APP
+========================================================= -->
+
+<div id="app">
+
+    <!-- BACKGROUND -->
+
+    <div class="aurora a"></div>
+    <div class="aurora b"></div>
+    <div class="aurora c"></div>
+
+    <div id="stars"></div>
+    <div id="particles"></div>
+
+    <div id="mouseLight"></div>
+
+    <!-- CINEMATIC BARS -->
+
+    <div class="cinema-bar top"></div>
+    <div class="cinema-bar bottom"></div>
+
+
+    <!-- =====================================================
+         SCENE 1
+    ====================================================== -->
+
+    <section
+        class="scene active"
+        data-scene="0"
+    >
+
+        <div class="intro">
+
+            <div class="eyebrow">
+                Một điều anh muốn nói
+            </div>
+
+            <h1>
+                Diệu Thảo
+            </h1>
+
+            <div class="intro-sub">
+                Anh có một lời xin lỗi muốn gửi đến em...
+            </div>
+
+            <div class="scroll">
+                ↓ &nbsp; CHẠM ĐỂ TIẾP TỤC &nbsp; ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCENE 2
+    ====================================================== -->
+
+    <section
+        class="scene"
+        data-scene="1"
+    >
+
+        <div class="apology">
+
+            <div class="glass">
+
+                <div class="eyebrow">
+                    Anh biết mình đã sai
+                </div>
+
+                <h2>
+                    Anh xin lỗi em.
+                </h2>
+
+                <p>
+                    Anh biết có những lúc mình đã làm em buồn,
+                    và anh thật sự không muốn điều đó xảy ra.
+                    <br><br>
+
+                    Anh không muốn tìm lý do để biện minh.
+                    Anh chỉ muốn nói rằng
+                    <span class="highlight">
+                        anh thật lòng xin lỗi Diệu Thảo.
+                    </span>
+                    <br><br>
+
+                    Cảm ơn em vì đã đọc đến đây.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCENE 3
+    ====================================================== -->
+
+    <section
+        class="scene"
+        data-scene="2"
+    >
+
+        <div class="apology">
+
+            <div class="heart-wrap"></div>
+
+            <div class="heart-title">
+                Anh không muốn mất em.
+            </div>
+
+            <div class="heart-sub">
+                Và anh muốn sửa sai bằng hành động,
+                chứ không chỉ bằng lời nói.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCENE 4 — QUESTION
+    ====================================================== -->
+
+    <section
+        class="scene"
+        data-scene="3"
+    >
+
+        <div class="question">
+
+            <div class="question-small">
+                Một câu hỏi cuối cùng...
+            </div>
+
+            <h2>
+                <span>Đồng ý</span><br>
+                bỏ qua cho anh nhé?
+            </h2>
+
+            <div class="buttons">
+
+                <button
+                    id="yesButton"
+                    class="btn yes"
+                >
+                    Vâng 💗
+                </button>
+
+                <button
+                    id="noButton"
+                    class="btn no"
+                >
+                    Không
+                </button>
+
+                <button
+                    id="loveButton"
+                    class="btn love"
+                >
+                    Em iu anh ❤️
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RESULT
+    ====================================================== -->
+
+    <div
+        id="result"
+        class="result"
+    >
+
+        <div class="result-card">
+
+            <div
+                id="resultIcon"
+                class="result-icon"
+            >
+                💗
+            </div>
+
+            <h2 id="resultTitle">
+                Anh cảm ơn em vì đã bỏ qua cho anh.
+            </h2>
+
+            <p id="resultText">
+                Anh xin hứa lần sau không như vậy nữa.
+                Anh sẽ cố gắng để em không phải buồn vì anh.
+            </p>
+
+            <button
+                id="closeResult"
+                class="close-result"
+            >
+                💕 Đóng lại
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div id="toast"></div>
+
+    <!-- FLASH -->
+
+    <div id="flash"></div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const loading =
+    document.getElementById("loading");
+
+const scenes =
+    [...document.querySelectorAll(".scene")];
+
+const stars =
+    document.getElementById("stars");
+
+const particles =
+    document.getElementById("particles");
+
+const mouseLight =
+    document.getElementById("mouseLight");
+
+const yesButton =
+    document.getElementById("yesButton");
+
+const noButton =
+    document.getElementById("noButton");
+
+const loveButton =
+    document.getElementById("loveButton");
+
+const result =
+    document.getElementById("result");
+
+const resultTitle =
+    document.getElementById("resultTitle");
+
+const resultText =
+    document.getElementById("resultText");
+
+const resultIcon =
+    document.getElementById("resultIcon");
+
+const closeResult =
+    document.getElementById("closeResult");
+
+const toast =
+    document.getElementById("toast");
+
+const flash =
+    document.getElementById("flash");
+
+
+let currentScene = 0;
+
+let wheelLock = false;
+
+let toastTimer = null;
+
+let noEscapeCount = 0;
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => {
+
+                loading.classList.add("hide");
+
+            },
+            1800
+        );
+
+    }
+);
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+for(let i = 0; i < 180; i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.setProperty(
+        "--duration",
+        2 + Math.random() * 5 + "s"
+    );
+
+    star.style.animationDelay =
+        -Math.random() * 5 + "s";
+
+    const size =
+        Math.random() > .9
+            ? 3
+            : Math.random() > .6
+                ? 2
+                : 1;
+
+    star.style.width =
+        size + "px";
+
+    star.style.height =
+        size + "px";
+
+    stars.appendChild(star);
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+for(let i = 0; i < 45; i++){
+
+    const particle =
+        document.createElement("div");
+
+    particle.className =
+        "particle";
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.setProperty(
+        "--duration",
+        8 + Math.random() * 12 + "s"
+    );
+
+    particle.style.setProperty(
+        "--delay",
+        -Math.random() * 15 + "s"
+    );
+
+    particle.style.setProperty(
+        "--x",
+        -150 + Math.random() * 300 + "px"
+    );
+
+    particle.style.setProperty(
+        "--x2",
+        -180 + Math.random() * 360 + "px"
+    );
+
+    particles.appendChild(particle);
+}
+
+
+/* =========================================================
+   SCENE TRANSITION
+========================================================= */
+
+function goToScene(index){
+
+    if(index < 0){
+        index = 0;
+    }
+
+    if(index >= scenes.length){
+        index = scenes.length - 1;
+    }
+
+    if(index === currentScene){
+        return;
+    }
+
+    scenes[currentScene]
+        .classList.remove("active");
+
+    currentScene = index;
+
+    setTimeout(
+        () => {
+
+            scenes[currentScene]
+                .classList.add("active");
+
+        },
+        120
+    );
+
+    cinematicTransition();
+}
+
+
+/* =========================================================
+   NEXT SCENE
+========================================================= */
+
+function nextScene(){
+
+    if(currentScene < scenes.length - 1){
+
+        goToScene(
+            currentScene + 1
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CLICK ANYWHERE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target.closest("button") ||
+            event.target.closest("#result")
+        ){
+            return;
+        }
+
+        if(
+            currentScene <
+            scenes.length - 1
+        ){
+
+            nextScene();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   WHEEL
+========================================================= */
+
+window.addEventListener(
+    "wheel",
+    event => {
+
+        if(wheelLock){
+            return;
+        }
+
+        wheelLock = true;
+
+        if(event.deltaY > 0){
+
+            nextScene();
+
+        }
+
+        if(event.deltaY < 0){
+
+            goToScene(
+                currentScene - 1
+            );
+
+        }
+
+        setTimeout(
+            () => {
+
+                wheelLock = false;
+
+            },
+            900
+        );
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "ArrowDown" ||
+            event.key === "ArrowRight" ||
+            event.key === " "
+        ){
+
+            event.preventDefault();
+
+            nextScene();
+
+        }
+
+        if(
+            event.key === "ArrowUp" ||
+            event.key === "ArrowLeft"
+        ){
+
+            goToScene(
+                currentScene - 1
+            );
+
+        }
+
+        if(event.key === "Escape"){
+
+            closeResult.click();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TOUCH SWIPE
+========================================================= */
+
+let touchStartY = 0;
+
+document.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartY =
+            event.touches[0].clientY;
+
+    },
+    {passive:true}
+);
+
+document.addEventListener(
+    "touchend",
+    event => {
+
+        const touchEndY =
+            event.changedTouches[0].clientY;
+
+        const difference =
+            touchStartY - touchEndY;
+
+        if(
+            Math.abs(difference) < 50
+        ){
+            return;
+        }
+
+        if(difference > 0){
+
+            nextScene();
+
+        }else{
+
+            goToScene(
+                currentScene - 1
+            );
+
+        }
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   MOUSE LIGHT
+========================================================= */
+
+let mouseX = 0;
+let mouseY = 0;
+
+let targetMouseX = 0;
+let targetMouseY = 0;
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        targetMouseX =
+            event.clientX;
+
+        targetMouseY =
+            event.clientY;
+
+    }
+);
+
+function animateMouse(){
+
+    mouseX +=
+        (targetMouseX - mouseX) * .1;
+
+    mouseY +=
+        (targetMouseY - mouseY) * .1;
+
+    mouseLight.style.left =
+        mouseX + "px";
+
+    mouseLight.style.top =
+        mouseY + "px";
+
+    requestAnimationFrame(
+        animateMouse
+    );
+}
+
+animateMouse();
+
+
+/* =========================================================
+   PARALLAX
+========================================================= */
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        const x =
+            (event.clientX /
+                window.innerWidth -
+                .5);
+
+        const y =
+            (event.clientY /
+                window.innerHeight -
+                .5);
+
+        document
+            .querySelector(".aurora.a")
+            .style.marginLeft =
+            x * 50 + "px";
+
+        document
+            .querySelector(".aurora.a")
+            .style.marginTop =
+            y * 40 + "px";
+
+        document
+            .querySelector(".aurora.b")
+            .style.marginRight =
+            x * -50 + "px";
+
+        document
+            .querySelector(".aurora.b")
+            .style.marginBottom =
+            y * -40 + "px";
+
+    }
+);
+
+
+/* =========================================================
+   CINEMATIC TRANSITION
+========================================================= */
+
+function cinematicTransition(){
+
+    flash.classList.remove("active");
+
+    void flash.offsetWidth;
+
+    flash.classList.add("active");
+
+    createFloatingHearts(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+        8
+    );
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createFloatingHearts(
+    x,
+    y,
+    amount = 20
+){
+
+    for(let i = 0; i < amount; i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "fly-heart";
+
+        heart.textContent =
+            Math.random() > .25
+                ? "♥"
+                : "♡";
+
+        heart.style.setProperty(
+            "--left",
+            x + "px"
+        );
+
+        heart.style.setProperty(
+            "--top",
+            y + "px"
+        );
+
+        heart.style.setProperty(
+            "--size",
+            12 + Math.random() * 22 + "px"
+        );
+
+        heart.style.setProperty(
+            "--color",
+            Math.random() > .5
+                ? "#ff5689"
+                : "#ffb1c8"
+        );
+
+        heart.style.setProperty(
+            "--duration",
+            1.5 + Math.random() * 2 + "s"
+        );
+
+        heart.style.setProperty(
+            "--x",
+            -250 + Math.random() * 500 + "px"
+        );
+
+        heart.style.setProperty(
+            "--y",
+            -(100 + Math.random() * 400) + "px"
+        );
+
+        heart.style.setProperty(
+            "--rotate",
+            -180 + Math.random() * 360 + "deg"
+        );
+
+        document.body.appendChild(
+            heart
+        );
+
+        setTimeout(
+            () => heart.remove(),
+            4000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    clearTimeout(toastTimer);
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
+
+}
+
+
+/* =========================================================
+   NO BUTTON — HOVER
+========================================================= */
+
+noButton.addEventListener(
+    "mouseenter",
+    escapeNoButton
+);
+
+noButton.addEventListener(
+    "mouseover",
+    escapeNoButton
+);
+
+
+/* =========================================================
+   NO BUTTON — TOUCH
+========================================================= */
+
+noButton.addEventListener(
+    "touchstart",
+    event => {
+
+        event.preventDefault();
+
+        escapeNoButton();
+
+    },
+    {passive:false}
+);
+
+
+/* =========================================================
+   NO BUTTON — CLICK
+========================================================= */
+
+noButton.addEventListener(
+    "click",
+    event => {
+
+        event.preventDefault();
+
+        escapeNoButton();
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE NO BUTTON
+========================================================= */
+
+function escapeNoButton(){
+
+    noEscapeCount++;
+
+    noButton.classList.add("flying");
+
+    const padding = 40;
+
+    const buttonWidth =
+        noButton.offsetWidth;
+
+    const buttonHeight =
+        noButton.offsetHeight;
+
+    const maxX =
+        window.innerWidth -
+        buttonWidth -
+        padding;
+
+    const maxY =
+        window.innerHeight -
+        buttonHeight -
+        padding;
+
+    let x =
+        padding +
+        Math.random() * Math.max(
+            0,
+            maxX - padding
+        );
+
+    let y =
+        padding +
+        Math.random() * Math.max(
+            0,
+            maxY - padding
+        );
+
+    /* Không cho nút nằm quá sát giữa */
+    const centerX =
+        window.innerWidth / 2;
+
+    const centerY =
+        window.innerHeight / 2;
+
+    if(
+        Math.abs(x - centerX) < 150 &&
+        Math.abs(y - centerY) < 100
+    ){
+
+        x += 220;
+
+        if(x > maxX){
+            x -= 440;
+        }
+
+    }
+
+    noButton.style.left =
+        Math.max(
+            padding,
+            Math.min(x,maxX)
+        ) + "px";
+
+    noButton.style.top =
+        Math.max(
+            padding,
+            Math.min(y,maxY)
+        ) + "px";
+
+    noButton.style.transform =
+        `rotate(
+            ${-12 + Math.random() * 24}deg
+        )`;
+
+    showToast(
+        noEscapeCount === 1
+            ? "Ấy... đừng chọn Không vội mà 🥺"
+            : noEscapeCount === 2
+                ? "Nút Không chạy mất rồi 😭"
+                : "Hình như nút này không muốn được bấm đâu 😆"
+    );
+
+    createFloatingHearts(
+        x,
+        y,
+        4
+    );
+
+}
+
+
+/* =========================================================
+   YES BUTTON
+========================================================= */
+
+yesButton.addEventListener(
+    "click",
+    () => {
+
+        showResult(
+            "💗",
+            "Anh cảm ơn em vì đã bỏ qua cho anh.",
+            "Anh xin hứa lần sau không như vậy nữa. Anh sẽ cố gắng để em không phải buồn vì anh."
+        );
+
+        createHeartExplosion();
+
+        createConfetti();
+
+    }
+);
+
+
+/* =========================================================
+   LOVE BUTTON
+========================================================= */
+
+loveButton.addEventListener(
+    "click",
+    () => {
+
+        showResult(
+            "❤️",
+            "Vminh iu Dthao nhất trên đời ♥",
+            "Cảm ơn em vì đã luôn ở đây."
+        );
+
+        createHeartExplosion();
+
+        createConfetti();
+
+    }
+);
+
+
+/* =========================================================
+   SHOW RESULT
+========================================================= */
+
+function showResult(
+    icon,
+    title,
+    text
+){
+
+    resultIcon.textContent =
+        icon;
+
+    resultTitle.textContent =
+        title;
+
+    resultText.textContent =
+        text;
+
+    result.classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE RESULT
+========================================================= */
+
+closeResult.addEventListener(
+    "click",
+    () => {
+
+        result.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   HEART EXPLOSION
+========================================================= */
+
+function createHeartExplosion(){
+
+    const centerX =
+        window.innerWidth / 2;
+
+    const centerY =
+        window.innerHeight / 2;
+
+    for(let i = 0; i < 55; i++){
+
+        const angle =
+            Math.PI * 2 *
+            i / 55;
+
+        const distance =
+            100 +
+            Math.random() * 400;
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "fly-heart";
+
+        heart.textContent =
+            Math.random() > .2
+                ? "♥"
+                : "♡";
+
+        heart.style.setProperty(
+            "--left",
+            centerX + "px"
+        );
+
+        heart.style.setProperty(
+            "--top",
+            centerY + "px"
+        );
+
+        heart.style.setProperty(
+            "--size",
+            12 + Math.random() * 24 + "px"
+        );
+
+        heart.style.setProperty(
+            "--color",
+            Math.random() > .5
+                ? "#ff3f79"
+                : "#ffb3c9"
+        );
+
+        heart.style.setProperty(
+            "--duration",
+            1.5 + Math.random() * 1.8 + "s"
+        );
+
+        heart.style.setProperty(
+            "--x",
+            Math.cos(angle) * distance + "px"
+        );
+
+        heart.style.setProperty(
+            "--y",
+            Math.sin(angle) * distance + "px"
+        );
+
+        heart.style.setProperty(
+            "--rotate",
+            -360 + Math.random() * 720 + "deg"
+        );
+
+        document.body.appendChild(
+            heart
+        );
+
+        setTimeout(
+            () => heart.remove(),
+            4000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function createConfetti(){
+
+    const colors = [
+        "#ff477d",
+        "#ff8eaa",
+        "#ffd2df",
+        "#ffffff",
+        "#b76cff"
+    ];
+
+    for(let i = 0; i < 90; i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.className =
+            "confetti";
+
+        piece.style.setProperty(
+            "--color",
+            colors[
+                Math.floor(
+                    Math.random() *
+                    colors.length
+                )
+            ]
+        );
+
+        piece.style.setProperty(
+            "--radius",
+            Math.random() > .5
+                ? "50%"
+                : "2px"
+        );
+
+        piece.style.setProperty(
+            "--duration",
+            1.3 + Math.random() * 2.2 + "s"
+        );
+
+        piece.style.setProperty(
+            "--x",
+            (-500 + Math.random() * 1000) + "px"
+        );
+
+        piece.style.setProperty(
+            "--y",
+            (-450 + Math.random() * 800) + "px"
+        );
+
+        piece.style.setProperty(
+            "--rotate",
+            (-720 + Math.random() * 1440) + "deg"
+        );
+
+        document.body.appendChild(
+            piece
+        );
+
+        setTimeout(
+            () => piece.remove(),
+            4000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIAL MESSAGE
+========================================================= */
+
+setTimeout(
+    () => {
+
+        showToast(
+            "Diệu Thảo, anh có điều muốn nói với em..."
+        );
+
+    },
+    2200
+);
+
+
+/* =========================================================
+   PREVENT NO BUTTON FROM GOING OFF SCREEN
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if(
+            !noButton.classList.contains(
+                "flying"
+            )
+        ){
+            return;
+        }
+
+        const rect =
+            noButton.getBoundingClientRect();
+
+        const padding = 20;
+
+        let left =
+            Math.max(
+                padding,
+                Math.min(
+                    rect.left,
+                    window.innerWidth -
+                    rect.width -
+                    padding
+                )
+            );
+
+        let top =
+            Math.max(
+                padding,
+                Math.min(
+                    rect.top,
+                    window.innerHeight -
+                    rect.height -
+                    padding
+                )
+            );
+
+        noButton.style.left =
+            left + "px";
+
+        noButton.style.top =
+            top + "px";
+
+    }
+);
+
+</script>
+
+</body>
 </html>
+```
